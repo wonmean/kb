@@ -1,27 +1,50 @@
 # Python
 
-## Installing miniconda
-
-Check for the latest version [here](https://docs.conda.io/en/latest/miniconda.html).
-
+## Venv
 ```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+sudo apt -y install python3-venv \
+&& python3 -m venv ~/venv/dev \
+&& echo "alias py=\"source ~/venv/dev/bin/activate\"" | tee -a ~/.bashrc > /dev/null \
+&& source ~/.bashrc
 ```
 
-## Add additional channels, i.e. repos
-
+Activate and use pip to install dependencies.
 ```bash
-conda config --add channels <url>
+py
+```
+```bash
+pip install numpy
 ```
 
-## Create and use requirements.txt
+## A quick python3 http server
+```bash
+python3 -m http.server -d ~/tmp
+```
 
-Including how to remove the environment.
+## Install Miniconda
+Check for the latest version [here](https://docs.conda.io/en/latest/miniconda.html).  
+This does not need `sudo`.
+```bash
+wget --no-check-certificate https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+&& chmod 775 Miniconda3-latest-Linux-x86_64.sh \
+&& ./Miniconda3-latest-Linux-x86_64.sh
+```
 
+## Other common commands
+List and save the environment.
 ```bash
 conda list -e > requirements.txt
-conda create -n py37 --file requirements.txt
-conda activate py37
-conda env remove -n py37
+```
+Create a new environment from the `requirements.txt`.
+```bash
+conda create -n rnn --file requirements.txt
+```
+Remove an environment.
+```bash
+conda env remove -n rnn
+```
+Reset the base conda environment.
+```bash
+conda activate base \
+&& conda install --rev 1
 ```
