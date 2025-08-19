@@ -1,0 +1,48 @@
+# Global
+.ackrc
+.cproject
+.tags*
+*.bin
+*.log
+*tmp*
+
+# Eclipse
+.metadata/
+.settings/
+bin/
+tmp/
+.project
+.pydevproject
+
+# JetBrains
+cmake-build-*/
+.idea/
+
+# Python
+__pycache__/
+dist/
+venv/
+*.egg-info/
+*.py[cod]
+
+# Sublime
+*.sublime-workspace
+
+# VSCode
+.history/
+.vscode/
+*.code-workspace
+
+# MacOS
+._*
+.DS_Store
+
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+
+# Vim
+*.swp
+
+# Misc
+.graphviz/
